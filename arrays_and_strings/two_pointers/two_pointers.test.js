@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest';
-import { findMiddleValue, isPalindrome, sortedTwoSum } from './two_pointers.js';
+import { combine, findMiddleValue, isPalindrome, sortedTwoSum } from './two_pointers.js';
 
 describe('Two Pointers', () => {
   describe('findMiddleValue', () => {
@@ -49,6 +49,12 @@ describe('Two Pointers', () => {
 
     test('returns false when no pair of integers sums to the target', () => {
       expect(sortedTwoSum([1, 2, 4, 6, 8, 9, 14, 15], 40)).toBeFalsy();
+    });
+  });
+
+  describe('combine', () => {
+    test('returns a new array that is sorted', () => {
+      expect(combine([1, 4, 7, 20], [3, 5, 6])).toEqual([1, 3, 4, 5, 6, 7, 20]);
     });
   });
 });

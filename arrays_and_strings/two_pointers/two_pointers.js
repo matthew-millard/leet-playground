@@ -45,3 +45,29 @@ export function sortedTwoSum(arr, target) {
     }
     return false;
 }
+export function combine(arr1, arr2) {
+    let i = 0;
+    let j = 0;
+    let newArray = [];
+    while (i < arr1.length && j < arr2.length) {
+        if (arr1[i] <= arr2[j]) {
+            newArray.push(arr1[i]);
+            i++;
+        }
+        else {
+            newArray.push(arr2[j]);
+            j++;
+        }
+    }
+    // Append the remaining elements from arr1, if any
+    while (i < arr1.length) {
+        newArray.push(arr1[i]);
+        i++;
+    }
+    // Append the remaining elements from arr2, if any
+    while (j < arr2.length) {
+        newArray.push(arr2[j]);
+        j++;
+    }
+    return newArray;
+}
