@@ -1,0 +1,28 @@
+{
+  "name": "leet-playground",
+  "version": "1.0.0",
+  "description": "Leetcode practice playground",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "vitest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matthew-millard/leet-playground.git"
+  },
+  "keywords": [
+    "leetcode",
+    "algorithm"
+  ],
+  "author": "Matt Millard",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/matthew-millard/leet-playground/issues"
+  },
+  "homepage": "https://github.com/matthew-millard/leet-playground#readme",
+  "devDependencies": {
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8"
+  }
+}
