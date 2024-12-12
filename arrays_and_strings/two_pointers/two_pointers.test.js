@@ -1,25 +1,7 @@
 import { describe, expect, test } from 'vitest';
-import { combine, findMiddleValue, isPalindrome, sortedTwoSum } from './two_pointers.js';
+import { combine, isPalindrome, isSubsequence, reverse, sortedTwoSum } from './two_pointers.js';
 
 describe('Two Pointers', () => {
-  describe('findMiddleValue', () => {
-    test('returns the middle value of an odd-length array', () => {
-      expect(findMiddleValue([1, 4, 3, 24, 5, 0, 5])).toBe(24);
-    });
-
-    test('returns the lower middle value of an even-length array', () => {
-      expect(findMiddleValue([1, 4, 3, 24, 5, 0])).toBe(3);
-    });
-
-    test('returns the only element when the array has one element', () => {
-      expect(findMiddleValue([1])).toBe(1);
-    });
-
-    test('returns undefined when the array is empty', () => {
-      expect(findMiddleValue([])).toBeUndefined();
-    });
-  });
-
   describe('isPalindrome', () => {
     test('returns true for a palindrome string', () => {
       expect(isPalindrome('racecar')).toBeTruthy();
@@ -55,6 +37,54 @@ describe('Two Pointers', () => {
   describe('combine', () => {
     test('returns a new array that is sorted', () => {
       expect(combine([1, 4, 7, 20], [3, 5, 6])).toEqual([1, 3, 4, 5, 6, 7, 20]);
+    });
+  });
+
+  describe('isSubsequence', () => {
+    test('returns true when the first string is a subsequence of the second string', () => {
+      expect(isSubsequence('ace', 'abcde')).toBe(true);
+    });
+
+    test('returns false when the first string is not a subsequence of the second string', () => {
+      expect(isSubsequence('aec', 'abcde')).toBe(false);
+    });
+
+    test('returns true for an empty first string', () => {
+      expect(isSubsequence('', 'abcde')).toBe(true);
+    });
+
+    test('returns false when the second string is empty but the first is not', () => {
+      expect(isSubsequence('a', '')).toBe(false);
+    });
+
+    test('returns true when both strings are empty', () => {
+      expect(isSubsequence('', '')).toBe(true);
+    });
+
+    test('returns true when the first string is a single character present in the second string', () => {
+      expect(isSubsequence('a', 'abcde')).toBe(true);
+    });
+
+    test('returns false when the first string is a single character not present in the second string', () => {
+      expect(isSubsequence('z', 'abcde')).toBe(false);
+    });
+  });
+
+  describe('reverse', () => {
+    test('reverses an odd-length array', () => {
+      expect(reverse(['h', 'e', 'l', 'l', 'o'])).toEqual(['o', 'l', 'l', 'e', 'h']);
+    });
+
+    test('reverses an even-length array', () => {
+      expect(reverse(['f', 'r', 'i', 'e', 'n', 'd'])).toEqual(['d', 'n', 'e', 'i', 'r', 'f']);
+    });
+
+    test('returns an empty array when given an empty array', () => {
+      expect(reverse([])).toEqual([]);
+    });
+
+    test('returns the same array when given a single-element array', () => {
+      expect(reverse(['a'])).toEqual(['a']);
     });
   });
 });

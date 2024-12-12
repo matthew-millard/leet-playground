@@ -1,17 +1,3 @@
-export function findMiddleValue(arr) {
-    let left = 0;
-    let right = arr.length - 1;
-    while (left <= right) {
-        if (left === right) {
-            return arr[left];
-        }
-        else if (left === right - 1) {
-            return arr[left]; // round down if array is even
-        }
-        left++;
-        right -= 1;
-    }
-}
 export function isPalindrome(string) {
     if (typeof string !== 'string' || !string.trim())
         return false;
@@ -70,4 +56,27 @@ export function combine(arr1, arr2) {
         j++;
     }
     return newArray;
+}
+export function isSubsequence(str1, str2) {
+    let i = 0;
+    let j = 0;
+    while (i < str1.length && j < str2.length) {
+        if (str1[i] === str2[j]) {
+            i++;
+        }
+        j++;
+    }
+    return i === str1.length;
+}
+export function reverse(arr) {
+    let left = 0;
+    let right = arr.length - 1;
+    while (left < right) {
+        let temp = arr[right];
+        arr[right] = arr[left];
+        arr[left] = temp;
+        left++;
+        right--;
+    }
+    return arr;
 }
