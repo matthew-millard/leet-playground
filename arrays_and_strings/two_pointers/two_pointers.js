@@ -1,4 +1,4 @@
-export function getMiddleValueOfArray(arr) {
+export function findMiddleValue(arr) {
     let left = 0;
     let right = arr.length - 1;
     while (left <= right) {
@@ -25,4 +25,23 @@ export function isPalindrome(string) {
         right--;
     }
     return true;
+}
+export function sortedTwoSum(arr, target) {
+    let left = 0;
+    let right = arr.length - 1;
+    while (left < right) {
+        const sum = arr[left] + arr[right];
+        if (sum === target) {
+            return true;
+        }
+        else if (sum > target) {
+            // move right pointer
+            right--;
+        }
+        else {
+            // move left pointer
+            left++;
+        }
+    }
+    return false;
 }
