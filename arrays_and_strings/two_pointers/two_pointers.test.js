@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest';
-import { combine, isPalindrome, isSubsequence, reverse, sortedTwoSum } from './two_pointers.js';
+import { combine, isPalindrome, isSubsequence, reverse, sortedTwoSum, squaresOfASortedArray } from './two_pointers.js';
 
 describe('Two Pointers', () => {
   describe('isPalindrome', () => {
@@ -85,6 +85,32 @@ describe('Two Pointers', () => {
 
     test('returns the same array when given a single-element array', () => {
       expect(reverse(['a'])).toEqual(['a']);
+    });
+  });
+
+  describe('squares of a sorted array', () => {
+    test('returns a non-decreasing array of squared elements', () => {
+      expect(squaresOfASortedArray([-4, -1, 0, 3, 10])).toEqual([0, 1, 9, 16, 100]);
+    });
+
+    test('handles a single-element array', () => {
+      expect(squaresOfASortedArray([-2])).toEqual([4]);
+    });
+
+    test('returns an empty array when given an empty array', () => {
+      expect(squaresOfASortedArray([])).toEqual([]);
+    });
+
+    test('returns a non-decreasing array when all elements are negative', () => {
+      expect(squaresOfASortedArray([-3, -2, -1])).toEqual([1, 4, 9]);
+    });
+
+    test('returns a non-decreasing array when all elements are positive', () => {
+      expect(squaresOfASortedArray([1, 2, 3])).toEqual([1, 4, 9]);
+    });
+
+    test('handles arrays with duplicate elements correctly', () => {
+      expect(squaresOfASortedArray([-2, -2, 2, 2])).toEqual([4, 4, 4, 4]);
     });
   });
 });
