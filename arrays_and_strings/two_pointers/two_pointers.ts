@@ -102,22 +102,7 @@ export function squaresOfASortedArray(arr: number[]): number[] {
   }
 
   // sort array in non-decreasing order
-  let isSorted = false;
-
-  while (isSorted === false) {
-    let modificationCount = 0;
-    for (let i = 0; i < arr.length - 1; i++) {
-      if (arr[i] > arr[i + 1]) {
-        let temp = arr[i + 1];
-        arr[i + 1] = arr[i];
-        arr[i] = temp;
-        modificationCount++;
-      }
-    }
-    if (modificationCount === 0) {
-      isSorted = true;
-    }
-  }
-
-  return arr;
+  return arr.sort((num1, num2) => num1 - num2);
 }
+
+squaresOfASortedArray([1, 2, 3, 4, 5, 6]);
