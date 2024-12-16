@@ -20,3 +20,20 @@ export function findLongestSubarray(arr, contraint) {
     }
     return longestSubarrayLength;
 }
+export function countSubarraysWithProductLessThanConstraint(arr, contraint) {
+    if (contraint <= 1) {
+        return 0;
+    }
+    let left = 0;
+    let current = 1;
+    let count = 0;
+    for (let right = 0; right < arr.length; right++) {
+        current *= arr[right];
+        while (current >= contraint) {
+            current /= arr[left];
+            left++;
+        }
+        count += right - left + 1;
+    }
+    return count;
+}
